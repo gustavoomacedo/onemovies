@@ -1,0 +1,229 @@
+﻿@model Model.FILME
+@{
+    ViewBag.Title = "Single";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js" type="text/javascript"></script>
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link href="~/Content/scss/poltronas.css" rel="stylesheet" />
+<div class="single-page-agile-main">
+    <div class="container">
+        <!-- /w3l-medile-movies-grids -->
+        <div class="agileits-single-top">
+            <ol class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li class="active">Single</li>
+            </ol>
+        </div>
+        <div class="single-page-agile-info">
+            <!-- /movie-browse-agile -->
+            <div class="show-top-grids-w3lagile">
+                <div class="col-sm-12 single-left">
+                    <div class="song">
+                        <div class="song-info">
+                            <h3>@Model.Titulo</h3>
+                        </div>
+                        <div class="video-grid-single-page-agileits">
+                            <div data-video="dLmKio67pVQ" id="video"> <img src="~/Content/images/uploads/@Model.FILME_IMAGEM.FirstOrDefault().ImagemBanner" alt="" class="img-responsive" /> </div>
+                        </div>
+                    </div>
+                    <div class="well">
+                        @Model.Descricao
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+
+                <div class="clearfix"> </div>
+                @Html.HiddenFor(x => x.FilmeId)
+                <div class="col-lg-12">
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label for="cmbCinema"> Cinema</label>
+                            <select class="form-control" id="cmbCinema">
+                                <option>-- SELECIONE --</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label for="cmbSala"> Sala</label>
+                            <select class="form-control" id="cmbSala">
+                                <option>-- SELECIONE --</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label for="cmbHorario">Horario</label>
+                            <select class="form-control" id="cmbHorario">
+                                <option>-- SELECIONE --</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label for="cmbPreco">Tipo de ingresso</label>
+                            <select class="form-control" id="cmbPreco">
+                                <option value="20">INTEIRA R$ 20,00</option>
+                                <option value="10">MEIA R$ 10,00</option>
+                            </select>
+                        </div>
+                    </div>
+                    </div>
+
+                <div class="clearfix"> </div>
+
+                <div class="col-lg-12">
+                    <div class="plane">
+                        <div class="cockpit">
+                            <h1>Por favor escolha os lugares</h1>
+                        </div>
+                        <div class="exit exit--front fuselage">
+
+                        </div>
+                        <ol class="cabin fuselage">
+                            <li class="row row--1">
+                                <ol class="seats" type="A">
+                                    <li class="seat">
+                                        <input type="checkbox" id="1A" />
+                                        <label for="1A">1A</label>
+                                    </li>
+                                    <li class="seat">
+                                        <input type="checkbox" id="1B" />
+                                        <label for="1B">1B</label>
+                                    </li>
+                                    <li class="seat">
+                                        <input type="checkbox" id="1C" />
+                                        <label for="1C">1C</label>
+                                    </li>
+                                    <li class="seat">
+                                        <input type="checkbox" id="1D" />
+                                        <label for="1D">1D</label>
+                                    </li>
+                                    <li class="seat">
+                                        <input type="checkbox" id="1E" />
+                                        <label for="1E">1E</label>
+                                    </li>
+                                    <li class="seat">
+                                        <input type="checkbox" id="1F" />
+                                        <label for="1F">1F</label>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li class="row row--2">
+                                <ol class="seats" type="A">
+                                    <li class="seat">
+                                        <input type="checkbox" id="2A" />
+                                        <label for="2A">2A</label>
+                                    </li>
+                                    <li class="seat">
+                                        <input type="checkbox" id="2B" />
+                                        <label for="2B">2B</label>
+                                    </li>
+                                    <li class="seat">
+                                        <input type="checkbox" id="2C" />
+                                        <label for="2C">2C</label>
+                                    </li>
+                                    <li class="seat">
+                                        <input type="checkbox" id="2D" />
+                                        <label for="2D">2D</label>
+                                    </li>
+                                    <li class="seat">
+                                        <input type="checkbox" id="2E" />
+                                        <label for="2E">2E</label>
+                                    </li>
+                                    <li class="seat">
+                                        <input type="checkbox" id="2F" />
+                                        <label for="2F">2F</label>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li class="row row--3">
+                                <ol class="seats" type="A">
+                                    <li class="seat">
+                                        <input type="checkbox" id="3A" />
+                                        <label for="3A">3A</label>
+                                    </li>
+                                    <li class="seat">
+                                        <input type="checkbox" id="3B" />
+                                        <label for="3B">3B</label>
+                                    </li>
+                                    <li class="seat">
+                                        <input type="checkbox" id="3C" />
+                                        <label for="3C">3C</label>
+                                    </li>
+                                    <li class="seat">
+                                        <input type="checkbox" id="3D" />
+                                        <label for="3D">3D</label>
+                                    </li>
+                                    <li class="seat">
+                                        <input type="checkbox" id="3E" />
+                                        <label for="3E">3E</label>
+                                    </li>
+                                    <li class="seat">
+                                        <input type="checkbox" id="3F" />
+                                        <label for="3F">3F</label>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li class="row row--4">
+                                <ol class="seats" type="A">
+                                    <li class="seat">
+                                        <input type="checkbox" id="4A" />
+                                        <label for="4A">4A</label>
+                                    </li>
+                                    <li class="seat">
+                                        <input type="checkbox" id="4B" />
+                                        <label for="4B">4B</label>
+                                    </li>
+                                    <li class="seat">
+                                        <input type="checkbox" id="4C" />
+                                        <label for="4C">4C</label>
+                                    </li>
+                                    <li class="seat">
+                                        <input type="checkbox" id="4D" />
+                                        <label for="4D">4D</label>
+                                    </li>
+                                    <li class="seat">
+                                        <input type="checkbox" id="4E" />
+                                        <label for="4E">4E</label>
+                                    </li>
+                                    <li class="seat">
+                                        <input type="checkbox" id="4F" />
+                                        <label for="4F">4F</label>
+                                    </li>
+                                </ol>
+                            </li>
+                        </ol>
+                        <div class="exit exit--back fuselage">
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="clearfix"> </div>
+
+                <div class="col-lg-12">
+                    <p>Forma de pagamento:</p>
+                    @Html.RadioButton("pagamento","cc")<img class="img img-responsive" src="~/Content/images/forma-pagamento.png" style="max-width: 300px;max-height: 130px;" />
+                    @Html.RadioButton("pagamento", "dd")<img class="img img-responsive" src="~/Content/images/dinheiro.png" style="max-width: 300px;max-height: 130px;" />
+                </div>
+
+                <input type="button" id="clickme" class="btn btn-default right" value="Comprar ingressos" />
+
+            </div>
+            <!-- //movie-browse-agile -->
+            <!--body wrapper start-->
+           
+            <!--body wrapper end-->
+
+
+        </div>
+        <!-- //w3l-latest-movies-grids -->
+    </div>
+</div>
+<!-- //w3l-medile-movies-grids -->
+
+<script src="~/Scripts/Ajax/Ingresso.js"></script>

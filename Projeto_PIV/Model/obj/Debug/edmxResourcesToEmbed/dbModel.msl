@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="ATOR">
+      <EntityTypeMapping TypeName="Model.ATOR">
+        <MappingFragment StoreEntitySet="ATOR">
+          <ScalarProperty Name="AtorId" ColumnName="AtorId" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AVALIACAO">
+      <EntityTypeMapping TypeName="Model.AVALIACAO">
+        <MappingFragment StoreEntitySet="AVALIACAO">
+          <ScalarProperty Name="AvaliacaoId" ColumnName="AvaliacaoId" />
+          <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+          <ScalarProperty Name="FilmeId" ColumnName="FilmeId" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CINEMA">
+      <EntityTypeMapping TypeName="Model.CINEMA">
+        <MappingFragment StoreEntitySet="CINEMA">
+          <ScalarProperty Name="CinemaId" ColumnName="CinemaId" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="CEP" ColumnName="CEP" />
+          <ScalarProperty Name="Logradouro" ColumnName="Logradouro" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+          <ScalarProperty Name="UF" ColumnName="UF" />
+          <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+          <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CONTATO">
+      <EntityTypeMapping TypeName="Model.CONTATO">
+        <MappingFragment StoreEntitySet="CONTATO">
+          <ScalarProperty Name="ContatoId" ColumnName="ContatoId" />
+          <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+          <ScalarProperty Name="Assunto" ColumnName="Assunto" />
+          <ScalarProperty Name="Texto" ColumnName="Texto" />
+          <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DIRETOR">
+      <EntityTypeMapping TypeName="Model.DIRETOR">
+        <MappingFragment StoreEntitySet="DIRETOR">
+          <ScalarProperty Name="DiretorId" ColumnName="DiretorId" />
+          <ScalarProperty Name="FilmeId" ColumnName="FilmeId" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FAVORITO">
+      <EntityTypeMapping TypeName="Model.FAVORITO">
+        <MappingFragment StoreEntitySet="FAVORITO">
+          <ScalarProperty Name="FavoridoId" ColumnName="FavoridoId" />
+          <ScalarProperty Name="FilmeId" ColumnName="FilmeId" />
+          <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FILME">
+      <EntityTypeMapping TypeName="Model.FILME">
+        <MappingFragment StoreEntitySet="FILME">
+          <ScalarProperty Name="FilmeId" ColumnName="FilmeId" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+          <ScalarProperty Name="Duracao" ColumnName="Duracao" />
+          <ScalarProperty Name="Classificacao" ColumnName="Classificacao" />
+          <ScalarProperty Name="Diretor" ColumnName="Diretor" />
+          <ScalarProperty Name="Distribuidora" ColumnName="Distribuidora" />
+          <ScalarProperty Name="Cartaz" ColumnName="Cartaz" />
+          <ScalarProperty Name="Estreia" ColumnName="Estreia" />
+          <ScalarProperty Name="Genero" ColumnName="Genero" />
+          <ScalarProperty Name="Trailer" ColumnName="Trailer" />
+          <ScalarProperty Name="DataCadastro" ColumnName="DataCadastro" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="POLTRONA">
+      <EntityTypeMapping TypeName="Model.POLTRONA">
+        <MappingFragment StoreEntitySet="POLTRONA">
+          <ScalarProperty Name="PoltronaId" ColumnName="PoltronaId" />
+          <ScalarProperty Name="SessaoId" ColumnName="SessaoId" />
+          <ScalarProperty Name="Assento" ColumnName="Assento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SALA">
+      <EntityTypeMapping TypeName="Model.SALA">
+        <MappingFragment StoreEntitySet="SALA">
+          <ScalarProperty Name="SalaId" ColumnName="SalaId" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Capacidade" ColumnName="Capacidade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ELENCO" TypeName="Model.ELENCO" StoreEntitySet="ELENCO">
+      <EndProperty Name="ATOR">
+        <ScalarProperty Name="AtorId" ColumnName="AtorId" />
+      </EndProperty>
+      <EndProperty Name="FILME">
+        <ScalarProperty Name="FilmeId" ColumnName="FilmeId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="CLIENTE">
+      <EntityTypeMapping TypeName="Model.CLIENTE">
+        <MappingFragment StoreEntitySet="CLIENTE">
+          <ScalarProperty Name="TrocaSenha" ColumnName="TrocaSenha" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+          <ScalarProperty Name="DataCadastro" ColumnName="DataCadastro" />
+          <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+          <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+          <ScalarProperty Name="UF" ColumnName="UF" />
+          <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Logradouro" ColumnName="Logradouro" />
+          <ScalarProperty Name="CEP" ColumnName="CEP" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="DataNasc" ColumnName="DataNasc" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CPF" ColumnName="CPF" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FILME_IMAGEM">
+      <EntityTypeMapping TypeName="Model.FILME_IMAGEM">
+        <MappingFragment StoreEntitySet="FILME_IMAGEM">
+          <ScalarProperty Name="ImagemLogo" ColumnName="ImagemLogo" />
+          <ScalarProperty Name="ImagemBanner" ColumnName="ImagemBanner" />
+          <ScalarProperty Name="FilmeId" ColumnName="FilmeId" />
+          <ScalarProperty Name="FilmeImagemId" ColumnName="FilmeImagemId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SESSAO">
+      <EntityTypeMapping TypeName="Model.SESSAO">
+        <MappingFragment StoreEntitySet="SESSAO">
+          <ScalarProperty Name="Horario" ColumnName="Horario" />
+          <ScalarProperty Name="CinemaId" ColumnName="CinemaId" />
+          <ScalarProperty Name="SalaId" ColumnName="SalaId" />
+          <ScalarProperty Name="FilmeId" ColumnName="FilmeId" />
+          <ScalarProperty Name="SessaoId" ColumnName="SessaoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INGRESSO">
+      <EntityTypeMapping TypeName="Model.INGRESSO">
+        <MappingFragment StoreEntitySet="INGRESSO">
+          <ScalarProperty Name="Pagamento" ColumnName="Pagamento" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="CinemaId" ColumnName="CinemaId" />
+          <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+          <ScalarProperty Name="PoltronaId" ColumnName="PoltronaId" />
+          <ScalarProperty Name="IngressoId" ColumnName="IngressoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,424 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ATOR">
+    <Key>
+      <PropertyRef Name="AtorId" />
+    </Key>
+    <Property Name="AtorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="FILME" Relationship="Self.ELENCO" FromRole="ATOR" ToRole="FILME" />
+  </EntityType>
+  <EntityType Name="AVALIACAO">
+    <Key>
+      <PropertyRef Name="AvaliacaoId" />
+    </Key>
+    <Property Name="AvaliacaoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClienteId" Type="Int32" Nullable="false" />
+    <Property Name="FilmeId" Type="Int32" Nullable="false" />
+    <Property Name="Descricao" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="DataCriacao" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="FILME" Relationship="Self.FK__AVALIACAO__Filme__74794A92" FromRole="AVALIACAO" ToRole="FILME" />
+    <NavigationProperty Name="CLIENTE" Relationship="Model.FK__AVALIACAO__Clien__756D6ECB" FromRole="AVALIACAO" ToRole="CLIENTE" />
+  </EntityType>
+  <EntityType Name="CINEMA">
+    <Key>
+      <PropertyRef Name="CinemaId" />
+    </Key>
+    <Property Name="CinemaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CEP" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Logradouro" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Numero" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Cidade" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UF" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Complemento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Bairro" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="SESSAO" Relationship="Model.FK__SESSAO__CinemaId__719CDDE7" FromRole="CINEMA" ToRole="SESSAO" />
+    <NavigationProperty Name="INGRESSO" Relationship="Model.FK__INGRESSO__Cinema__00DF2177" FromRole="CINEMA" ToRole="INGRESSO" />
+  </EntityType>
+  <EntityType Name="CONTATO">
+    <Key>
+      <PropertyRef Name="ContatoId" />
+    </Key>
+    <Property Name="ContatoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClienteId" Type="Int32" Nullable="false" />
+    <Property Name="Assunto" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Texto" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="DataCriacao" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CLIENTE" Relationship="Model.FK__CONTATO__Cliente__6CD828CA" FromRole="CONTATO" ToRole="CLIENTE" />
+  </EntityType>
+  <EntityType Name="DIRETOR">
+    <Key>
+      <PropertyRef Name="DiretorId" />
+    </Key>
+    <Property Name="DiretorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FilmeId" Type="Int32" Nullable="false" />
+    <Property Name="Nome" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="FILME" Relationship="Self.FK__DIRETOR__FilmeId__03BB8E22" FromRole="DIRETOR" ToRole="FILME" />
+  </EntityType>
+  <EntityType Name="FAVORITO">
+    <Key>
+      <PropertyRef Name="FavoridoId" />
+    </Key>
+    <Property Name="FavoridoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FilmeId" Type="Int32" Nullable="false" />
+    <Property Name="ClienteId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="FILME" Relationship="Self.FK__FAVORITO__FilmeI__793DFFAF" FromRole="FAVORITO" ToRole="FILME" />
+    <NavigationProperty Name="CLIENTE" Relationship="Model.FK__FAVORITO__Client__7849DB76" FromRole="FAVORITO" ToRole="CLIENTE" />
+  </EntityType>
+  <EntityType Name="FILME">
+    <Key>
+      <PropertyRef Name="FilmeId" />
+    </Key>
+    <Property Name="FilmeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Titulo" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Duracao" Type="Int32" />
+    <Property Name="Classificacao" Type="Int32" />
+    <Property Name="Diretor" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Distribuidora" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Cartaz" Type="Boolean" />
+    <Property Name="Estreia" Type="Boolean" />
+    <Property Name="Genero" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Trailer" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="DataCadastro" Type="DateTime" Precision="3" />
+    <Property Name="Descricao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AVALIACAO" Relationship="Self.FK__AVALIACAO__Filme__74794A92" FromRole="FILME" ToRole="AVALIACAO" />
+    <NavigationProperty Name="DIRETOR1" Relationship="Self.FK__DIRETOR__FilmeId__03BB8E22" FromRole="FILME" ToRole="DIRETOR" />
+    <NavigationProperty Name="FAVORITO" Relationship="Self.FK__FAVORITO__FilmeI__793DFFAF" FromRole="FILME" ToRole="FAVORITO" />
+    <NavigationProperty Name="ATOR" Relationship="Self.ELENCO" FromRole="FILME" ToRole="ATOR" />
+    <NavigationProperty Name="FILME_IMAGEM" Relationship="Model.FK__FILME_IMA__Image__2EA5EC27" FromRole="FILME" ToRole="FILME_IMAGEM" />
+    <NavigationProperty Name="SESSAO" Relationship="Model.FK__SESSAO__FilmeId__70A8B9AE" FromRole="FILME" ToRole="SESSAO" />
+  </EntityType>
+  <EntityType Name="POLTRONA">
+    <Key>
+      <PropertyRef Name="PoltronaId" />
+    </Key>
+    <Property Name="PoltronaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SessaoId" Type="Int32" Nullable="false" />
+    <Property Name="Assento" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SESSAO" Relationship="Model.FK__POLTRONA__Sessao__7C1A6C5A" FromRole="POLTRONA" ToRole="SESSAO" />
+    <NavigationProperty Name="INGRESSO" Relationship="Model.FK__INGRESSO__Poltro__7FEAFD3E" FromRole="POLTRONA" ToRole="INGRESSO" />
+  </EntityType>
+  <EntityType Name="SALA">
+    <Key>
+      <PropertyRef Name="SalaId" />
+    </Key>
+    <Property Name="SalaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Capacidade" Type="Int32" />
+    <NavigationProperty Name="SESSAO" Relationship="Model.FK__SESSAO__SalaId__6FB49575" FromRole="SALA" ToRole="SESSAO" />
+  </EntityType>
+  <Association Name="FK__AVALIACAO__Filme__74794A92">
+    <End Role="FILME" Type="Self.FILME" Multiplicity="1" />
+    <End Role="AVALIACAO" Type="Self.AVALIACAO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FILME">
+        <PropertyRef Name="FilmeId" />
+      </Principal>
+      <Dependent Role="AVALIACAO">
+        <PropertyRef Name="FilmeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DIRETOR__FilmeId__03BB8E22">
+    <End Role="FILME" Type="Self.FILME" Multiplicity="1" />
+    <End Role="DIRETOR" Type="Self.DIRETOR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FILME">
+        <PropertyRef Name="FilmeId" />
+      </Principal>
+      <Dependent Role="DIRETOR">
+        <PropertyRef Name="FilmeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FAVORITO__FilmeI__793DFFAF">
+    <End Role="FILME" Type="Self.FILME" Multiplicity="1" />
+    <End Role="FAVORITO" Type="Self.FAVORITO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FILME">
+        <PropertyRef Name="FilmeId" />
+      </Principal>
+      <Dependent Role="FAVORITO">
+        <PropertyRef Name="FilmeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ELENCO">
+    <End Role="ATOR" Type="Self.ATOR" Multiplicity="*" />
+    <End Role="FILME" Type="Self.FILME" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ATOR" EntityType="Self.ATOR" />
+    <EntitySet Name="AVALIACAO" EntityType="Self.AVALIACAO" />
+    <EntitySet Name="CINEMA" EntityType="Self.CINEMA" />
+    <EntitySet Name="CONTATO" EntityType="Self.CONTATO" />
+    <EntitySet Name="DIRETOR" EntityType="Self.DIRETOR" />
+    <EntitySet Name="FAVORITO" EntityType="Self.FAVORITO" />
+    <EntitySet Name="FILME" EntityType="Self.FILME" />
+    <EntitySet Name="POLTRONA" EntityType="Self.POLTRONA" />
+    <EntitySet Name="SALA" EntityType="Self.SALA" />
+    <AssociationSet Name="FK__AVALIACAO__Filme__74794A92" Association="Self.FK__AVALIACAO__Filme__74794A92">
+      <End Role="FILME" EntitySet="FILME" />
+      <End Role="AVALIACAO" EntitySet="AVALIACAO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DIRETOR__FilmeId__03BB8E22" Association="Self.FK__DIRETOR__FilmeId__03BB8E22">
+      <End Role="FILME" EntitySet="FILME" />
+      <End Role="DIRETOR" EntitySet="DIRETOR" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FAVORITO__FilmeI__793DFFAF" Association="Self.FK__FAVORITO__FilmeI__793DFFAF">
+      <End Role="FILME" EntitySet="FILME" />
+      <End Role="FAVORITO" EntitySet="FAVORITO" />
+    </AssociationSet>
+    <AssociationSet Name="ELENCO" Association="Self.ELENCO">
+      <End Role="ATOR" EntitySet="ATOR" />
+      <End Role="FILME" EntitySet="FILME" />
+    </AssociationSet>
+    <EntitySet Name="CLIENTE" EntityType="Model.CLIENTE" />
+    <AssociationSet Name="FK__AVALIACAO__Clien__756D6ECB" Association="Model.FK__AVALIACAO__Clien__756D6ECB">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="AVALIACAO" EntitySet="AVALIACAO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CONTATO__Cliente__6CD828CA" Association="Model.FK__CONTATO__Cliente__6CD828CA">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="CONTATO" EntitySet="CONTATO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FAVORITO__Client__7849DB76" Association="Model.FK__FAVORITO__Client__7849DB76">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="FAVORITO" EntitySet="FAVORITO" />
+    </AssociationSet>
+    <EntitySet Name="FILME_IMAGEM" EntityType="Model.FILME_IMAGEM" />
+    <AssociationSet Name="FK__FILME_IMA__Image__2EA5EC27" Association="Model.FK__FILME_IMA__Image__2EA5EC27">
+      <End Role="FILME" EntitySet="FILME" />
+      <End Role="FILME_IMAGEM" EntitySet="FILME_IMAGEM" />
+    </AssociationSet>
+    <EntitySet Name="SESSAO" EntityType="Model.SESSAO" />
+    <AssociationSet Name="FK__SESSAO__CinemaId__719CDDE7" Association="Model.FK__SESSAO__CinemaId__719CDDE7">
+      <End Role="CINEMA" EntitySet="CINEMA" />
+      <End Role="SESSAO" EntitySet="SESSAO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SESSAO__FilmeId__70A8B9AE" Association="Model.FK__SESSAO__FilmeId__70A8B9AE">
+      <End Role="FILME" EntitySet="FILME" />
+      <End Role="SESSAO" EntitySet="SESSAO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__POLTRONA__Sessao__7C1A6C5A" Association="Model.FK__POLTRONA__Sessao__7C1A6C5A">
+      <End Role="SESSAO" EntitySet="SESSAO" />
+      <End Role="POLTRONA" EntitySet="POLTRONA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SESSAO__SalaId__6FB49575" Association="Model.FK__SESSAO__SalaId__6FB49575">
+      <End Role="SALA" EntitySet="SALA" />
+      <End Role="SESSAO" EntitySet="SESSAO" />
+    </AssociationSet>
+    <EntitySet Name="INGRESSO" EntityType="Model.INGRESSO" />
+    <AssociationSet Name="FK__INGRESSO__Cinema__00DF2177" Association="Model.FK__INGRESSO__Cinema__00DF2177">
+      <End Role="CINEMA" EntitySet="CINEMA" />
+      <End Role="INGRESSO" EntitySet="INGRESSO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__INGRESSO__Client__7EF6D905" Association="Model.FK__INGRESSO__Client__7EF6D905">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="INGRESSO" EntitySet="INGRESSO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__INGRESSO__Poltro__7FEAFD3E" Association="Model.FK__INGRESSO__Poltro__7FEAFD3E">
+      <End Role="POLTRONA" EntitySet="POLTRONA" />
+      <End Role="INGRESSO" EntitySet="INGRESSO" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CLIENTE">
+    <Key>
+      <PropertyRef Name="ClienteId" />
+    </Key>
+    <Property Name="ClienteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="CPF" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="DataNasc" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Sexo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Telefone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Celular" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CEP" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Logradouro" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Numero" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Cidade" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="UF" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="Complemento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Bairro" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DataCadastro" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Senha" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="TrocaSenha" Type="Boolean" />
+    <NavigationProperty Name="AVALIACAO" Relationship="Model.FK__AVALIACAO__Clien__756D6ECB" FromRole="CLIENTE" ToRole="AVALIACAO" />
+    <NavigationProperty Name="CONTATO" Relationship="Model.FK__CONTATO__Cliente__6CD828CA" FromRole="CLIENTE" ToRole="CONTATO" />
+    <NavigationProperty Name="FAVORITO" Relationship="Model.FK__FAVORITO__Client__7849DB76" FromRole="CLIENTE" ToRole="FAVORITO" />
+    <NavigationProperty Name="INGRESSO" Relationship="Model.FK__INGRESSO__Client__7EF6D905" FromRole="CLIENTE" ToRole="INGRESSO" />
+  </EntityType>
+  <Association Name="FK__AVALIACAO__Clien__756D6ECB">
+    <End Type="Model.CLIENTE" Role="CLIENTE" Multiplicity="1" />
+    <End Type="Model.AVALIACAO" Role="AVALIACAO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="ClienteId" />
+      </Principal>
+      <Dependent Role="AVALIACAO">
+        <PropertyRef Name="ClienteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CONTATO__Cliente__6CD828CA">
+    <End Type="Model.CLIENTE" Role="CLIENTE" Multiplicity="1" />
+    <End Type="Model.CONTATO" Role="CONTATO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="ClienteId" />
+      </Principal>
+      <Dependent Role="CONTATO">
+        <PropertyRef Name="ClienteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FAVORITO__Client__7849DB76">
+    <End Type="Model.CLIENTE" Role="CLIENTE" Multiplicity="1" />
+    <End Type="Model.FAVORITO" Role="FAVORITO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="ClienteId" />
+      </Principal>
+      <Dependent Role="FAVORITO">
+        <PropertyRef Name="ClienteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="FILME_IMAGEM">
+    <Key>
+      <PropertyRef Name="FilmeImagemId" />
+      <PropertyRef Name="FilmeId" />
+    </Key>
+    <Property Name="FilmeImagemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FilmeId" Type="Int32" Nullable="false" />
+    <Property Name="ImagemBanner" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="ImagemLogo" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="FILME" Relationship="Model.FK__FILME_IMA__Image__2EA5EC27" FromRole="FILME_IMAGEM" ToRole="FILME" />
+  </EntityType>
+  <Association Name="FK__FILME_IMA__Image__2EA5EC27">
+    <End Type="Model.FILME" Role="FILME" Multiplicity="1" />
+    <End Type="Model.FILME_IMAGEM" Role="FILME_IMAGEM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FILME">
+        <PropertyRef Name="FilmeId" />
+      </Principal>
+      <Dependent Role="FILME_IMAGEM">
+        <PropertyRef Name="FilmeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="SESSAO">
+    <Key>
+      <PropertyRef Name="SessaoId" />
+    </Key>
+    <Property Name="SessaoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FilmeId" Type="Int32" Nullable="false" />
+    <Property Name="SalaId" Type="Int32" Nullable="false" />
+    <Property Name="CinemaId" Type="Int32" Nullable="false" />
+    <Property Name="Horario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CINEMA" Relationship="Model.FK__SESSAO__CinemaId__719CDDE7" FromRole="SESSAO" ToRole="CINEMA" />
+    <NavigationProperty Name="FILME" Relationship="Model.FK__SESSAO__FilmeId__70A8B9AE" FromRole="SESSAO" ToRole="FILME" />
+    <NavigationProperty Name="POLTRONA" Relationship="Model.FK__POLTRONA__Sessao__7C1A6C5A" FromRole="SESSAO" ToRole="POLTRONA" />
+    <NavigationProperty Name="SALA" Relationship="Model.FK__SESSAO__SalaId__6FB49575" FromRole="SESSAO" ToRole="SALA" />
+  </EntityType>
+  <Association Name="FK__SESSAO__CinemaId__719CDDE7">
+    <End Type="Model.CINEMA" Role="CINEMA" Multiplicity="1" />
+    <End Type="Model.SESSAO" Role="SESSAO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CINEMA">
+        <PropertyRef Name="CinemaId" />
+      </Principal>
+      <Dependent Role="SESSAO">
+        <PropertyRef Name="CinemaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SESSAO__FilmeId__70A8B9AE">
+    <End Type="Model.FILME" Role="FILME" Multiplicity="1" />
+    <End Type="Model.SESSAO" Role="SESSAO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FILME">
+        <PropertyRef Name="FilmeId" />
+      </Principal>
+      <Dependent Role="SESSAO">
+        <PropertyRef Name="FilmeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__POLTRONA__Sessao__7C1A6C5A">
+    <End Type="Model.SESSAO" Role="SESSAO" Multiplicity="1" />
+    <End Type="Model.POLTRONA" Role="POLTRONA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SESSAO">
+        <PropertyRef Name="SessaoId" />
+      </Principal>
+      <Dependent Role="POLTRONA">
+        <PropertyRef Name="SessaoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SESSAO__SalaId__6FB49575">
+    <End Type="Model.SALA" Role="SALA" Multiplicity="1" />
+    <End Type="Model.SESSAO" Role="SESSAO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SALA">
+        <PropertyRef Name="SalaId" />
+      </Principal>
+      <Dependent Role="SESSAO">
+        <PropertyRef Name="SalaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="INGRESSO">
+    <Key>
+      <PropertyRef Name="IngressoId" />
+    </Key>
+    <Property Name="IngressoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PoltronaId" Type="Int32" Nullable="false" />
+    <Property Name="ClienteId" Type="Int32" Nullable="false" />
+    <Property Name="CinemaId" Type="Int32" Nullable="false" />
+    <Property Name="Valor" Type="Decimal" Precision="9" Scale="2" />
+    <Property Name="Pagamento" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CINEMA" Relationship="Model.FK__INGRESSO__Cinema__00DF2177" FromRole="INGRESSO" ToRole="CINEMA" />
+    <NavigationProperty Name="CLIENTE" Relationship="Model.FK__INGRESSO__Client__7EF6D905" FromRole="INGRESSO" ToRole="CLIENTE" />
+    <NavigationProperty Name="POLTRONA" Relationship="Model.FK__INGRESSO__Poltro__7FEAFD3E" FromRole="INGRESSO" ToRole="POLTRONA" />
+  </EntityType>
+  <Association Name="FK__INGRESSO__Cinema__00DF2177">
+    <End Type="Model.CINEMA" Role="CINEMA" Multiplicity="1" />
+    <End Type="Model.INGRESSO" Role="INGRESSO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CINEMA">
+        <PropertyRef Name="CinemaId" />
+      </Principal>
+      <Dependent Role="INGRESSO">
+        <PropertyRef Name="CinemaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__INGRESSO__Client__7EF6D905">
+    <End Type="Model.CLIENTE" Role="CLIENTE" Multiplicity="1" />
+    <End Type="Model.INGRESSO" Role="INGRESSO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="ClienteId" />
+      </Principal>
+      <Dependent Role="INGRESSO">
+        <PropertyRef Name="ClienteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__INGRESSO__Poltro__7FEAFD3E">
+    <End Type="Model.POLTRONA" Role="POLTRONA" Multiplicity="1" />
+    <End Type="Model.INGRESSO" Role="INGRESSO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="POLTRONA">
+        <PropertyRef Name="PoltronaId" />
+      </Principal>
+      <Dependent Role="INGRESSO">
+        <PropertyRef Name="PoltronaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

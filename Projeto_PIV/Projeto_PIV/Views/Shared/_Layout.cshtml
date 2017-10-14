@@ -1,0 +1,343 @@
+﻿@using Model;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>One Movies an Entertainment Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="One Movies Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+               function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //for-mobile-apps -->
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/Content/css/contactstyle.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/Content/css/faqstyle.css" type="text/css" media="all" />
+    <link href="~/Content/css/single.css" rel='stylesheet' type='text/css' />
+    <link href="~/Content/css/medile.css" rel='stylesheet' type='text/css' />
+    <!-- banner-slider -->
+    <link href="~/Content/css/jquery.slidey.min.css" rel="stylesheet">
+    <!-- //banner-slider -->
+    <!-- pop-up -->
+    <link href="~/Content/css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- //pop-up -->
+    <!-- font-awesome icons -->
+    <link rel="stylesheet" href="~/Content/css/font-awesome.min.css" />
+    <!-- //font-awesome icons -->
+    <!-- js -->
+    <script type="text/javascript" src="~/Content/js/jquery-2.1.4.min.js"></script>
+    <!-- //js -->
+    <!-- banner-bottom-plugin -->
+    <link href="~/Content/css/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
+    <script src="~/Content/js/owl.carousel.js"></script>
+    <script src="~/Scripts/dialog.js"></script>
+    <script src="~/Scripts/jquery.maskedinput.js"></script>
+    <script src="~/Scripts/sweetalert.min.js"></script>
+    <link href="~/Content/css/sweetalert.css" rel="stylesheet" />
+    <script src="~/Scripts/Ajax/Login.js"></script>
+    <script>
+	$(document).ready(function() {
+		$("#owl-demo").owlCarousel({
+
+		  autoPlay: 3000, //Set AutoPlay to 3 seconds
+
+		  items : 5,
+		  itemsDesktop : [640,4],
+		  itemsDesktopSmall : [414,3]
+
+		});
+
+	});
+    </script>
+    <!-- //banner-bottom-plugin -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300' rel='stylesheet' type='text/css'>
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="~/Content/js/move-top.js"></script>
+    <script type="text/javascript" src="~/Content/js/easing.js"></script>
+    <script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+    </script>
+    <!-- start-smoth-scrolling -->
+</head>
+
+<body>
+    <!-- header -->
+    <div class="header">
+        <div class="container">
+            <div class="w3layouts_logo">
+                <a href="~/Home"><h1>One<span>Movies</span></h1></a>
+            </div>
+            @*<div class="w3_search">
+                <form action="#" method="post">
+                    <input type="text" name="Search" placeholder="Procurar" required="">
+                    <input type="submit" value="Go">
+                </form>
+            </div>*@
+            <div class="w3l_sign_in_register">
+                <ul>
+                    @{
+                        CLIENTE cliente = Session["Cliente"] as CLIENTE;
+                        if (cliente != null)
+                        {
+                            <li><p>Bem vindo, @cliente.Nome <a href="~/Cadastro">Meus dados</a></p></li>
+                            <li><a href="~/Home/LogOut">Sair</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="#" data-toggle="modal" data-target="#myModal">Login</a></li>
+                            <li><a href="~/Cadastro">Cadastre-se</a></li>
+                        }
+                    }
+                </ul>
+
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <!-- //header -->
+    <!-- bootstrap-pop-up -->
+    <div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    Acesso a conta
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <section>
+                    <div class="modal-body">
+                        @*<div class="w3_login_module">
+                            <div class="module form-module">
+                                <div class="form" style="display:block;">
+                                    <h3>Acesse sua conta</h3>
+                                    <form action="#" method="post" id="formLogin">
+                                        <input type="text" name="email" id="email" placeholder="E-mail" required="required">
+                                        <input type="password" name="senha" id="senha" placeholder="Senha" required="required">
+                                        <button id="btnLogar" class="btn btn-default">Login</button>
+                                    </form>
+                                </div>
+                                <div class="cta"><a href="#">Esqueceu sua senha?</a></div>
+                                <br/>
+                                <div class="cta"><a href="~/Cadastro">CLIQUE AQUI PARA CADASTRAR-SE</a></div>
+                            </div>
+                        </div>*@
+
+
+                        <div class="w3_login_module">
+                            <div class="module form-module">
+                                <div class="toggle">
+                                    <i class="fa fa-times fa-pencil"></i>
+                                    <div class="tooltip">ESQUECI MINHA SENHA</div>
+                                </div>
+                                <div class="form">
+                                    <h3>Acesse sua conta</h3>
+                                    <form action="#" method="post" id="formLogin">
+                                        <input type="text" name="email" id="email" placeholder="E-mail" required="required">
+                                        <input type="password" name="senha" id="senha" placeholder="Senha" required="required">
+                                        <button id="btnLogar" class="btn btn-default">Login</button>
+                                    </form>
+                                    <div class="cta"><a href="~/Cadastro">CLIQUE AQUI PARA CADASTRAR-SE</a></div>
+                                </div>
+                                <div class="form">
+                                    <h3>Esqueci Minha senha</h3>
+                                    <form action="#" method="post" id="formEsenha">
+                                        <input type="text" name="email" placeholder="E-mail" required="">
+                                        <input type="submit" value="Lembrar Senha">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <script>
+		$('.toggle').click(function(){
+		  // Switches the Icon
+		  $(this).children('i').toggleClass('fa-pencil');
+		  // Switches the forms
+		  $('.form').animate({
+			height: "toggle",
+			'padding-top': 'toggle',
+			'padding-bottom': 'toggle',
+			opacity: "toggle"
+		  }, "slow");
+		});
+    </script>
+    <!-- //bootstrap-pop-up -->
+    <!-- nav -->
+    <div class="movies_nav">
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <div class="navbar-header navbar-left">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                    <nav>
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="~/Home">Home</a></li>
+                            @*<li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gêneros <b class="caret"></b></a>
+                                <ul class="dropdown-menu multi-column columns-3">
+                                    <li>
+                                        <div class="col-sm-4">
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href="~/Filmes">Action</a></li>
+                                                <li><a href="~/Filmes">Biography</a></li>
+                                                <li><a href="~/Filmes">Crime</a></li>
+                                                <li><a href="~/Filmes">Family</a></li>
+                                                <li><a href="~/Filmes">Horror</a></li>
+                                                <li><a href="~/Filmes">Romance</a></li>
+                                                <li><a href="~/Filmes">Sports</a></li>
+                                                <li><a href="~/Filmes">War</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href="~/Filmes">Adventure</a></li>
+                                                <li><a href="~/Filmes">Comedy</a></li>
+                                                <li><a href="~/Filmes">Documentary</a></li>
+                                                <li><a href="~/Filmes">Fantasy</a></li>
+                                                <li><a href="~/Filmes">Thriller</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href="~/Filmes">Animation</a></li>
+                                                <li><a href="~/Filmes">Costume</a></li>
+                                                <li><a href="~/Filmes">Drama</a></li>
+                                                <li><a href="~/Filmes">History</a></li>
+                                                <li><a href="~/Filmes">Musical</a></li>
+                                                <li><a href="~/Filmes">Psychological</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </li>
+                                </ul>
+                            </li>*@
+                            @*<li><a href="~/Home/Shorts">Códigos</a></li>*@
+                            @*<li><a href="~/Home/Lista">Lista de filmes</a></li>*@
+                            @*<li><a href="~/Home/single">Single</a></li>*@
+                        </ul>
+                    </nav>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- //nav -->
+    <div class="general_social_icons">
+        <nav class="social">
+            <ul>
+                <li class="w3_twitter"><a href="#">Twitter <i class="fa fa-twitter"></i></a></li>
+                <li class="w3_facebook"><a href="#">Facebook <i class="fa fa-facebook"></i></a></li> 
+                <li class="w3_g_plus"><a href="#">Google+ <i class="fa fa-google-plus"></i></a></li>
+            </ul>
+        </nav>
+    </div>
+    @RenderBody()
+    <!-- footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="w3ls_footer_grid">
+                <div class="col-md-6 w3ls_footer_grid_left">
+                    <div class="w3ls_footer_grid_left1">
+                        <h2>Inscreva -se</h2>
+                        <div class="w3ls_footer_grid_left1_pos">
+                            <form action="#" method="post">
+                                <input type="email" name="email" placeholder="Seu email..." required="">
+                                <input type="submit" value="Enviar">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 w3ls_footer_grid_right">
+                    <a href="index.html"><h2>One<span>Movies</span></h2></a>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="col-md-5 w3ls_footer_grid1_left">
+                <p>&copy; 2017 One Movies. Todos os direitos reservados.
+            </div>
+            <div class="col-md-7 w3ls_footer_grid1_right">
+                <ul>
+                    <li>
+                        <a href="genres.html">Movies</a>
+                    </li>
+                    <li>
+                        <a href="faq.html">FAQ</a>
+                    </li>
+                    <li>
+                        <a href="horror.html">Action</a>
+                    </li>
+                    <li>
+                        <a href="genres.html">Adventure</a>
+                    </li>
+                    <li>
+                        <a href="comedy.html">Comedy</a>
+                    </li>
+                    <li>
+                        <a href="icons.html">Icons</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <!-- //footer -->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".dropdown").hover(
+                function() {
+                    $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
+                    $(this).toggleClass('open');
+                },
+                function() {
+                    $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+                    $(this).toggleClass('open');
+                }
+            );
+        });
+    </script>
+    <!-- //Bootstrap Core JavaScript -->
+    <!-- here stars scrolling icon -->
+    <script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear'
+				};
+			*/
+
+			$().UItoTop({ easingType: 'easeOutQuart' });
+
+			});
+    </script>
+    <!-- //here ends scrolling icon -->
+
+    <script src="~/Scripts/Ajax/Main.js"></script>
+</body>
+</html>

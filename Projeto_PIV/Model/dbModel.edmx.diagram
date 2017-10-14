@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d331b15e66224ddb88dba8a6efb423ce" Name="Diagram1" ZoomLevel="71">
+        <EntityTypeShape EntityType="Model.ATOR" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AVALIACAO" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CINEMA" Width="1.5" PointX="9" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CONTATO" Width="1.5" PointX="0.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DIRETOR" Width="1.5" PointX="5.25" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FAVORITO" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FILME" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.POLTRONA" Width="1.5" PointX="10.375" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.SALA" Width="1.5" PointX="6" PointY="2.375" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK__AVALIACAO__Filme__74794A92" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__DIRETOR__FilmeId__03BB8E22" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__FAVORITO__FilmeI__793DFFAF" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.ELENCO" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Model.CLIENTE" Width="1.5" PointX="2.75" PointY="0.75" />
+        <AssociationConnector Association="Model.FK__AVALIACAO__Clien__756D6ECB" />
+        <AssociationConnector Association="Model.FK__CONTATO__Cliente__6CD828CA" />
+        <AssociationConnector Association="Model.FK__FAVORITO__Client__7849DB76" />
+        <EntityTypeShape EntityType="Model.FILME_IMAGEM" Width="1.5" PointX="5.25" PointY="14.5" />
+        <AssociationConnector Association="Model.FK__FILME_IMA__Image__2EA5EC27" />
+        <EntityTypeShape EntityType="Model.SESSAO" Width="1.5" PointX="11.25" PointY="9.5" />
+        <AssociationConnector Association="Model.FK__SESSAO__CinemaId__719CDDE7" />
+        <AssociationConnector Association="Model.FK__SESSAO__FilmeId__70A8B9AE" />
+        <AssociationConnector Association="Model.FK__POLTRONA__Sessao__7C1A6C5A" />
+        <AssociationConnector Association="Model.FK__SESSAO__SalaId__6FB49575" />
+        <EntityTypeShape EntityType="Model.INGRESSO" Width="1.5" PointX="12.625" PointY="5.75" />
+        <AssociationConnector Association="Model.FK__INGRESSO__Cinema__00DF2177" />
+        <AssociationConnector Association="Model.FK__INGRESSO__Client__7EF6D905" />
+        <AssociationConnector Association="Model.FK__INGRESSO__Poltro__7FEAFD3E" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "Upload";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Dashboard
+            <small>Painel de controle</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Dashboard</li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="title">
+                    <div class="col-lg-6">
+                        <div class="titleLeft"><h1>Upload de filmes</h1></div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="text-right">
+                            <div class="col-lg-6">
+                                <a href="~/Areas/Admin/Content/Modelos_Planilhas/ModeloFilmes.csv" class="app-widget-button app-widget-button-success"><span class="fa fa-file-excel-o"></span></a>
+                                <span class="lnkPlanilhaModelo">Baixar a planilha modelo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <p>Faça o upload da planilha de filmes.</p>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-lg-12">
+                        @using (Html.BeginForm("Upload", "Filme", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+
+                            <fieldset>
+                                <div class="row form-group">
+                                    <div class="col-lg-12">
+                                        <span class="error"> @Html.Raw(@ViewData["error"]) </span>
+                                        <span class="success"> @ViewData["success"] </span>
+                                    </div>
+                                </div>
+
+                                <div class="row form-group">
+                                    <div class="col-lg-12">
+                                        <input id="Foto" title="Upload da arquivo" type="file" name="file" />
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-lg-12">
+                                        <input type="submit" value="Enviar Arquivo" class="btn btn-warning" />
+                                    </div>
+                                </div>
+                            </fieldset>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

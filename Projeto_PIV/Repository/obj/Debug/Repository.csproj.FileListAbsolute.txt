@@ -1,0 +1,12 @@
+D:\Repositorios\PI_V\Projeto_PIV\Repository\bin\Debug\Repository.dll.config
+D:\Repositorios\PI_V\Projeto_PIV\Repository\bin\Debug\Repository.dll
+D:\Repositorios\PI_V\Projeto_PIV\Repository\bin\Debug\Repository.pdb
+D:\Repositorios\PI_V\Projeto_PIV\Repository\bin\Debug\EntityFramework.dll
+D:\Repositorios\PI_V\Projeto_PIV\Repository\bin\Debug\EntityFramework.SqlServer.dll
+D:\Repositorios\PI_V\Projeto_PIV\Repository\bin\Debug\Model.dll
+D:\Repositorios\PI_V\Projeto_PIV\Repository\bin\Debug\Model.pdb
+D:\Repositorios\PI_V\Projeto_PIV\Repository\bin\Debug\EntityFramework.xml
+D:\Repositorios\PI_V\Projeto_PIV\Repository\bin\Debug\EntityFramework.SqlServer.xml
+D:\Repositorios\PI_V\Projeto_PIV\Repository\obj\Debug\Repository.csprojResolveAssemblyReference.cache
+D:\Repositorios\PI_V\Projeto_PIV\Repository\obj\Debug\Repository.dll
+D:\Repositorios\PI_V\Projeto_PIV\Repository\obj\Debug\Repository.pdb

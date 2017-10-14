@@ -1,0 +1,5 @@
+D:\Repositorios\PI_V\Projeto_PIV\Layout\bin\Debug\Layout.dll
+D:\Repositorios\PI_V\Projeto_PIV\Layout\bin\Debug\Layout.pdb
+D:\Repositorios\PI_V\Projeto_PIV\Layout\obj\Debug\Layout.csprojResolveAssemblyReference.cache
+D:\Repositorios\PI_V\Projeto_PIV\Layout\obj\Debug\Layout.dll
+D:\Repositorios\PI_V\Projeto_PIV\Layout\obj\Debug\Layout.pdb

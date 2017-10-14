@@ -1,0 +1,99 @@
+﻿@model IEnumerable<Model.FILME>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Dashboard
+            <small>Painel de controle</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="~/Admin/Filme"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Dashboard</li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="box">
+                            <div class="box-header">
+                                <h3 class="box-title">Filmes</h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body table-responsive no-padding">
+                                <table class="table table-hover">
+                                    <tr>
+                                        <th>Titulo</th>
+                                        <th>Duracao</th>
+                                        <th>Classificacao</th>
+                                        <th>Diretor</th>
+                                        <th>Distribuidora</th>
+                                        <th>Cartaz</th>
+                                        <th>Estreia</th>
+                                        <th>Genero</th>
+                                        <th>Trailer</th>
+                                        <th>Data de Estreia</th>
+                                        <th>Descricao</th>
+                                        <th></th>
+                                    </tr>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Titulo)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Duracao)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Classificacao)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Diretor)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Distribuidora)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Cartaz)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Estreia)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Genero)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Trailer)
+                                            </td>
+                                            <td>
+                                               <p>@item.DataCadastro.Value.ToString("dd/MM/yyyy")</p>
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Descricao)
+                                            </td>
+                                            <td>@Html.ActionLink("Salvar Imagens","Imagens", new { id = item.FilmeId })</td>
+                                        </tr>
+                                    }
+                                </table>
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
